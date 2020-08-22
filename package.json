@@ -1,6 +1,6 @@
 {
   "name": "eaz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "↝ Simple and flexible easing package for smooth animations",
   "main": "build/index.js",
   "types": "build/index.d.ts",

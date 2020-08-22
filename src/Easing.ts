@@ -43,14 +43,16 @@ class Easing {
   }
 
   /* Static methods */
-  static interpolate(inFunction: Easing, outFunction: Easing, t: number, smoothing = 0.25) {
+  static interpolate(inEasing: Easing, outEasing: Easing, t: number, smoothing = 0.25) {
+    if (smoothing === 0) return Easing.inOut(inEasing, outEasing, t);
+
     const smoothEasing = Easing.polynomial(1 / smoothing);
     const easedTime = Easing.inOut(smoothEasing, smoothEasing, t);
-    return ((outFunction.inOut(t) * easedTime) + (inFunction.inOut(t) * (1 - easedTime)));
+    return ((outEasing.inOut(t) * easedTime) + (inEasing.inOut(t) * (1 - easedTime)));
   }
 
-  static inOut(inFunction: Easing, outFunction: Easing, t: number): number {
-    return t < 0.5 ? (0.5 * inFunction.in(t * 2)) : (0.5 * outFunction.out((t - 0.5) * 2) + 0.5);
+  static inOut(inEasing: Easing, outEasing: Easing, t: number): number {
+    return t < 0.5 ? (0.5 * inEasing.in(t * 2)) : (0.5 * outEasing.out((t - 0.5) * 2) + 0.5);
   }
 
   static polynomial(degree = 2): Easing {
@@ -81,7 +83,7 @@ class Easing {
       if (t < margin) {
         multiplier = t / margin;
       } else if (t > (1 - margin)) {
-        multiplier = (t - (1 - margin)) / margin;
+        multiplier = (1 - t) / margin;
       }
 
       return t

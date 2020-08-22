@@ -1,7 +1,6 @@
-import { Easing } from '../index';
-import DemoImage from '../DemoImage';
+import { Easing, DemoImage } from '../index';
 
 const cubic = Easing.cubic;
-const noise = Easing.noise(0.05, 10);
+const noise = Easing.noise(0.05, 5);
 
-DemoImage.interpolate(cubic, noise, 'src/tests/images/cubicNoiseInterpolate.png')
+console.log(Easing.polynomial(2.5).in(0.3));
