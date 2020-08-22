@@ -29,5 +29,5 @@ yarn-error.log*
 dist/
 .cache/
 
-# Private files
-private/
+# Compiled code
+build/

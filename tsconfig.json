@@ -4,6 +4,7 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
+    "declaration": true,
     "outDir": "build",
     "rootDir": "src",
     "strict": true,
@@ -11,5 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noImplicitAny": false
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

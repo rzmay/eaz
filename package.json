@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "↝ Simple and flexible easing package for smooth animations",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": ["build/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertmay2003/eaz.git"
+  },
+  "homepage": "https://github.com/robertmay2003/eaz#readme",
   "scripts": {
     "build": "rimraf ./build && tsc",
-    "test": "npm run build && node build/test.js"
+    "test": "npm run build && node build/tests/test.js",
+    "prepare" : "npm run build"
   },
   "keywords": [
     "curve",
@@ -29,7 +37,6 @@
     "@types/node": "^14.6.0",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
-    "alias-quokka-plugin": "github:davestewart/alias-quokka-plugin#master",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.0",
