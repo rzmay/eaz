@@ -1,0 +1,9 @@
+{
+  "plugins": ["alias-quokka-plugin"],
+  "alias": {
+    "@/eaz/": "./build/"
+  },
+  "babel": {
+    "ts": true
+  }
+}
