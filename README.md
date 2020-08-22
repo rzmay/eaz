@@ -40,4 +40,4 @@ import { Easing, DemoImage } from '../index';
 DemoImage.inOut(Easing.cubic, 'images/cubicInOut.png');
 ```
 Output:
-![images/cubicInOut.png](https://raw.githubusercontent.com/robertmay2003/eaz/master/src/images/cubicInOut.png)
+![images/cubicInOut.png](https://raw.githubusercontent.com/robertmay2003/eaz/master/src/tests/images/cubicInOut.png)
