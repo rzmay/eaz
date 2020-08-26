@@ -1,6 +1,6 @@
 {
   "name": "eaz",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "↝ Simple and flexible easing package for smooth animations",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -8,6 +8,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/robertmay2003/eaz.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "homepage": "https://github.com/robertmay2003/eaz#readme",
   "scripts": {
