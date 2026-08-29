@@ -22,7 +22,7 @@ class DemoImage {
         }
         ctx.stroke();
 
-        return PImage;
+        return image;
     }
 
     static in(easing: Easing, steps = 200) {
