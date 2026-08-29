@@ -1,17 +1,8 @@
 import PImage from 'pureimage';
 import { Easing } from './index';
-import * as fs from 'fs';
 
 class DemoImage {
-    private static _save(image: any, outPath: string) {
-        PImage.encodePNGToStream(image, fs.createWriteStream(outPath)).then(() => {
-            console.log(`wrote out the png file to ${outPath}`);
-        }).catch((e)=>{
-            console.log(e);
-        });
-    }
-
-    private static _createImage(easingFunction: (t: number) => number, outPath: string, steps: number) {
+    private static _createImage(easingFunction: (t: number) => number, steps: number) {
         // Create image & get context
         const image = PImage.make(512, 512);
         const ctx = image.getContext('2d');
@@ -31,25 +22,24 @@ class DemoImage {
         }
         ctx.stroke();
 
-        DemoImage._save(image, outPath);
+        return PImage;
     }
 
-    static in(easing: Easing, outPath: string, steps = 200) {
-        DemoImage._createImage(easing.in, outPath, steps);
+    static in(easing: Easing, steps = 200) {
+        DemoImage._createImage(easing.in, steps);
     }
 
-    static out(easing: Easing, outPath: string, steps = 200) {
-        DemoImage._createImage(easing.out.bind(easing), outPath, steps);
+    static out(easing: Easing, steps = 200) {
+        DemoImage._createImage(easing.out.bind(easing), steps);
     }
 
-    static inOut(easing: Easing, outPath: string, steps = 200) {
-        DemoImage._createImage(easing.inOut.bind(easing), outPath, steps);
+    static inOut(easing: Easing, steps = 200) {
+        DemoImage._createImage(easing.inOut.bind(easing), steps);
     }
 
-    static interpolate(inEasing: Easing, outEasing: Easing, outPath: string, smoothing = 0.25, steps = 200) {
+    static interpolate(inEasing: Easing, outEasing: Easing, smoothing = 0.25, steps = 200) {
         DemoImage._createImage(
             (t: number) => Easing.interpolate(inEasing, outEasing, t, smoothing),
-            outPath,
             steps
         );
     }
