@@ -2,8 +2,21 @@
   "name": "eaz",
   "version": "2.0.3",
   "description": "↝ Simple and flexible easing package for smooth animations",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "build/index.cjs",
+  "module": "build/index.mjs",
+  "types": "build/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./build/index.d.mts",
+        "default": "./build/index.mjs"
+      },
+      "require": {
+        "types": "./build/index.d.cts",
+        "default": "./build/index.cjs"
+      }
+    }
+  },
   "files": [
     "build/**/*"
   ],
@@ -13,7 +26,7 @@
   },
   "homepage": "https://github.com/robertmay2003/eaz#readme",
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "build": "tsdown && tsc --emitDeclarationOnly",
     "test": "npm run build && node build/tests/test.js",
     "prepare": "npm run build"
   },
@@ -40,6 +53,7 @@
     "@typescript-eslint/parser": "^8",
     "eslint": "^10.9.1",
     "rimraf": "^3.0.2",
+    "tsdown": "^0.23.0",
     "typescript": "5.9"
   }
 }

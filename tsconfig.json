@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es6"],
-    "allowJs": true,
+    "target": "es6",
+    "lib": [
+      "esnext",
+      "esnext.array",
+      "dom"
+    ],
+    "module": "esnext",
     "declaration": true,
-    "outDir": "build",
-    "rootDir": "src",
+    "rootDir": "./src",
+    "outDir": "./build",
+    "types": [],
     "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noImplicitAny": false
+    "moduleResolution": "bundler"
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "demo"]
 }
