@@ -30,15 +30,15 @@ class Easing {
     this.in = inFunction;
   }
 
-  out(t: number): number {
+  out = (t: number): number => {
     return -this.in(-t + 1) + 1;
   }
 
-  inOut(t: number) {
+  inOut = (t: number): number => {
     return t < 0.5 ? (0.5 * this.in(t * 2)) : (0.5 * this.out((t - 0.5) * 2) + 0.5);
   }
 
-  inverse(): Easing {
+  inverse = (): Easing => {
     return new Easing((t: number) => this.out(t));
   }
 
